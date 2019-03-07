@@ -1,8 +1,12 @@
 ﻿  Source.cpp
-c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(116): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(116): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(116): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(127): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(127): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(67): warning C4101: 'i': unreferenced local variable
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(60): warning C4018: '<': signed/unsigned mismatch
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(63): warning C4018: '<': signed/unsigned mismatch
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(125): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
   nulllllllllllllittytytytyty.vcxproj -> C:\Users\hb000671\source\repos\nulllllllllllllittytytytyty\Debug\nulllllllllllllittytytytyty.exe

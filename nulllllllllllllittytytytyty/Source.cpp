@@ -2,137 +2,131 @@
 #include <string.h>
 #include <math.h>
 #include <stdio.h>
+#include<conio.h>
+#include<time.h>
 #include <iostream>  
 #include <algorithm> 
 #include <limits>
 #include <cfloat>
 #include <stdint.h>
-
+#include <vector>
 
 using namespace std;
 
-// A function used to implement the bubblesort algorithm.
+//### DATA
+
+// Constants
+static float
+n_zero = (-0.0),
+zero = (0.0);
+
+// Values
+vector<float> float_array, nan_array;
+
 
 void niceView() {
 	getchar();
 	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
+void switch_vals(float &a, float &b) {
+	float temp = a;
+	a = b;
+	b = temp;
+}
 
-void bubbleSort(float arr[], int n)
+void nanRemove() {
+	for (int i = 0; i < float_array.size(); i++) {
+		if (float_array[i] != float_array[i]) {
+			nan_array.push_back(float_array[i]);
+			float_array.erase(float_array.begin() + i);
+		}
+	}
+}
+
+void bubbleSort()
 {
-	if (n == 0)
-	{
-		std::cout << "..." << std::endl;
-		return;
-	}
-
-	// After the first pass, then the largest element is moved to the end. 
-
-	for (int i = 0; i < n - 1; i++)
-
-	{
-		if (arr[i] > arr[i + 1])
-			swap(arr[i], arr[i + 1]);
-
-		//The largest element in the array  Largest element is fixed, recur for remaining array 
-	}
-
-	bubbleSort(arr, n - 1);
-
+	nanRemove();
+	for (int i = 0; i < float_array.size(); i++)
+		for (int j = 0; j < float_array.size() - i - 1; j++)
+			if (float_array[j] > float_array[j + 1])
+				switch_vals(float_array[j], float_array[j + 1]);
 }
 
 //Function prints the array of values entered 
-void printArray(float arr[], int n)
+void printArray()
 {
-	if (n == 0)
-	{
-		cout << "There are no elements to be sorted" << endl;
-		return;
-	}
-	else {
-		for (int i = 0; i < n; i++)
-		{
-			printf("%e", arr[i]); //%e” is for floating type number, a series of decimal digits
-			printf("\n");
-		}
+	printf("\nFloats : [[[");
+	for (int i = 0; i < float_array.size(); i++)
+		printf("%e, ", float_array[i]);
+	printf("\nNANs   : [[[");
+	for (int i = 0; i < nan_array.size(); i++)
+		printf("%e, ", nan_array[i]);
+}
 
-	}
+
+
+void verbose_sort(vector<float> values) {
+	// Clear
+	float_array.clear();
+	nan_array.clear();
+	// Fill Array and Print
+	float_array = values;
+	printArray();
+	bubbleSort();
+	printf("\nSorted!");
+	printArray();
+	niceView();
+}
+
+void checkVals(float a, float b) {
+	printf("\n\n%f < %f : %s", a, b, a < b ? "True" : "False");
 }
 
 int main()
 {
+	printf("\n\n\n\n\n\n\n\n\nWelcome to Neyma's NULLITY\nPress enter to continue...");
+	niceView();
+	printf("%s", "Tim's Testing :)");
+
+	// Test 1
+	checkVals(-INFINITY, INFINITY);
+	checkVals(-INFINITY, NAN);
+	checkVals(INFINITY, NAN);
+	checkVals(-INFINITY, -NAN);
+	checkVals(INFINITY, -NAN);
+
+
+
+	niceView();
 
 	///////////negative zero///////////
-	int i;
-	float n_zero = (-0.0);
-	float zero = (0.0);
+
 
 	//Case 1: positive infinity and negative infinity  
 	std::cout << "Case 1: Can sort data with at least one negative infinity and one positive infinity" << std::endl;
-
-	float arr1[] = { -INFINITY, 255, 332, 444, 11, INFINITY }; //test elements have been pre-inputted into the compiler.
-	int n1 = sizeof(arr1) / sizeof(arr1[0]);
-	printArray(arr1, n1);
-	bubbleSort(arr1, n1);
-	std::cout << "Sorted array of the elements: \n" << std::endl;
-	printArray(arr1, n1);
-
-	niceView();
+	verbose_sort({ -INFINITY, 255, 332, 444, 11, INFINITY }); //test elements have been pre-inputted into the compiler.
 
 
 	//Case 2: Sort elements including minus zero  	
 	std::cout << "Case 2: Can sort data with at least one negative zero" << std::endl;
-	float arr2[] = {34, (-0.0), 47, 11,(0.0), INFINITY };//test elements have been pre-inputted into the compiler.
-	int n2 = sizeof(arr2) / sizeof(arr2[0]);
-	bubbleSort(arr2, n2);
-	printArray(arr2, n2);
-	std::cout << "Sorted array of elements: \n" << std::endl;
-	printArray(arr2, n2);
+	verbose_sort({ 34, (-0.0), 47, 11,(0.0), INFINITY });//test elements have been pre-inputted into the compiler.
 
-	niceView();
 	//Case 3: Sort atleast one negative infinity
 	std::cout << "Case 3: Can sort data with at least one negative infinity" << std::endl;
-	float arr3[] = { 34, 4, -INFINITY, 66, 110 };//test elements have been pre-inputted into the compiler.
-	int n3 = sizeof(arr3) / sizeof(arr3[0]);
-	bubbleSort(arr3, n3);
-	printArray(arr3, n3);
-	std::cout << "Sorted array of elements: \n" << std::endl;
-	printArray(arr3, n3);
+	verbose_sort({ 34, 4, -INFINITY, 66, 110 });//test elements have been pre-inputted into the compiler.
 
-	niceView();
 	//Case 4: Sort atleast one negative infinity
 	std::cout << "Case 4: Can sort data with at least one negative infinity" << std::endl;
-	float arr4[] = { 4, -114, INFINITY, 66, 1101 };//test elements have been pre-inputted into the compiler.
-	int n4 = sizeof(arr4) / sizeof(arr4[0]);
-	bubbleSort(arr4, n4);
-	printArray(arr4, n4);
-	std::cout << "Sorted array of elements: \n" << std::endl;
-	printArray(arr4, n4);
+	verbose_sort({ 4, -114, INFINITY, 66, 1101 });//test elements have been pre-inputted into the compiler.
 
-	niceView();
 	//Case 5:Sort atleast one NaN
 	std::cout << "Case 5: Can sort atleast one NaN" << std::endl;
-	float arr5[] = { sqrt(-55),-344, -6.4, NAN, 11, INFINITY, -INFINITY };//test elements have been pre-inputted into the compiler.
-	int n5 = sizeof(arr5) / sizeof(arr5[0]);
-	printArray(arr5, n5);
-	bubbleSort(arr5, n5);
-	std::cout << "Sorted array of elements: \n" << std::endl;
-	printArray(arr5, n5);
+	verbose_sort({ (float)sqrt(-55),-344, -6.4, NAN, 11, INFINITY, -INFINITY });//test elements have been pre-inputted into the compiler.
 
-	niceView();
 	//Case 6:Sort 2 NaNs
 	std::cout << "Case 6:Can sort data with at least two different NaNs" << std::endl;
-	
-	float arr6[] = { sqrt(3),-3, (0.0), 111, NAN*1, NAN*-2, INFINITY, -INFINITY};//test elements have been pre-inputted into the compiler.
-	
-	int n6 = sizeof(arr6) / sizeof(arr6[0]);
-	printArray(arr6, n6);
-	bubbleSort(arr6, n6);
-	std::cout << "Sorted array of elements: \n" << std::endl;
-	printArray(arr6, n6);
+	verbose_sort({ (float)sqrt(3),-3, (0.0), 111, NAN * 1, NAN*-2, INFINITY, -INFINITY });//test elements have been pre-inputted into the compiler.
 
-
-	niceView();
 	return 0;
 }
