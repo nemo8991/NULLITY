@@ -1,0 +1,8 @@
+﻿  Source.cpp
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(116): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(116): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(116): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(127): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(127): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hb000671\source\repos\nulllllllllllllittytytytyty\nulllllllllllllittytytytyty\source.cpp(67): warning C4101: 'i': unreferenced local variable
+  nulllllllllllllittytytytyty.vcxproj -> C:\Users\hb000671\source\repos\nulllllllllllllittytytytyty\Debug\nulllllllllllllittytytytyty.exe
